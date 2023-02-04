@@ -1,0 +1,9 @@
+x and y are normalized to [0.0, 1.0] by the image width and height 
+respectively. z represents the landmark depth with the depth at the wrist 
+being the origin.
+If landmark is closer to camera than wrist, z is -ve.
+If landmark is far from camera than wrist, z is +ve.
+
+
+x is along horizontal
+y is along vertical

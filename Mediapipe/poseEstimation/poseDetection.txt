@@ -1,0 +1,2 @@
+When detection confidence >min_detection_confidence => it will track pose
+	When tracking_confidence<0.5 => it will be back to detection

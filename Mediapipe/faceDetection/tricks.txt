@@ -1,0 +1,1 @@
+1. Square images are more better for face detection

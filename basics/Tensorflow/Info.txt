@@ -1,0 +1,3 @@
+Sequential:
+Linear stack of layers
+Hidden layers are being passed in it. Input and output layers are obvious

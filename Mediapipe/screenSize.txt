@@ -1,0 +1,2 @@
+wScr,hScr=autopy.screen.size()
+= 1536,864

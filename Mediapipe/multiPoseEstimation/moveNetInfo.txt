@@ -1,0 +1,3 @@
+The Multi-Person Pose Estimation is a model designed for sports and 
+exercise-based applications. The model can detect six people in an image 
+or video simultaneously, and 17 key-point joints per person.
