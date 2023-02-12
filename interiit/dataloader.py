@@ -29,7 +29,7 @@ def load_imgs(path_to_imgDir, path_to_csv):
     a tuple with first element as name of class and second element is
     """
     df = pd.read_csv(path_to_csv)
-    df = df.drop(['True Weight Ibs','Length','Width','Height','Length(cm)','Width(cm)','Height(cm)'],axis=1)
+    df = df.drop(['True Weight Ibs','Length','Width','Height','Volume','Weight(kg)'],axis=1)
     a = open("real.txt","r")
     real = a.read()
     a.close()
@@ -49,7 +49,7 @@ def load_imgs(path_to_imgDir, path_to_csv):
         if dataset.classes[i] in list(df.index):
             temp = df.loc[dataset.classes[i]]
             # dataset.classes[i] = (dataset.classes[i],np.array([temp[0],temp[1]]))
-            dataset.classes[i] = np.array([temp[0],temp[1]])
+            dataset.classes[i] = np.array([temp[0],temp[1],temp[2],temp[3]])
             # print(dataset.classes[i])
     for i in range(0,len(dataset.targets)):
         dataset.targets[i] = dataset.classes[dataset.targets[i]]
@@ -83,10 +83,10 @@ def visualize_batch(batch, classes, dataset_type):
 	# plt.show()
 
 def main():
-    dataset = load_imgs('data/','Data.csv')
+    dataset = load_imgs('../../data/interiit/data/','Data1.csv')
     print(dataset.targets)
-    print('\n\n')
-    print(dataset.classes)
+    # print('\n\n')
+    # print(dataset.classes)
     # dataLoad = DataLoader(dataset, batch_size=30, shuffle=False)
     # trainBatch = next(iter(dataLoad))
     # visualize_batch(trainBatch, dataset.classes, "train")

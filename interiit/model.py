@@ -107,7 +107,8 @@ class ModelClass(nn.Module):
         
         for batch_idx, (data, target) in enumerate(train_loader):
             # print(batch)
-            data, target = data.float(), target.float()
+            target = np.array([train_loader.dataset.dataset.targets[i] for i in target])
+            target = torch.tensor(target)
             data, target = data.to(self.device), target.to(self.device)
             print(target)
             
@@ -158,9 +159,9 @@ def main():
     # TODO: Complete the main function
     GS_Model = ModelClass()
     # print(GS_Model)
-    dataset = load_imgs('data/','Data.csv')
-    # print(dataset.targets)
-    train_ds, val_ds = dataset, dataset
+    dataset = load_imgs('../../data/interiit/data','Data.csv')
+    print(dataset.targets)
+    train_ds, val_ds = random_split(dataset, [0.9, 0.1])
     # train_ds.dataset.targets = train_ds.dataset.classes
     train_loader = DataLoader(train_ds, batch_size= 64, shuffle=False, num_workers=4, pin_memory=True)
     val_loader = DataLoader(val_ds, batch_size= 64, num_workers=4, pin_memory=True)
